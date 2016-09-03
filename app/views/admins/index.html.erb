@@ -1,0 +1,27 @@
+<h3>Websites</h3>
+<p>Every recorded website. URL's not linked to protect the innocent.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Nameserver</th>
+      <th>Admin</th>
+      <th>Tech</th>
+      <th>Registrar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @websites.each do |website| %>
+      <tr>
+        <td><%= website.url %></td>
+        <td><%= website.name_server %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add a website", url_for(:controller => :websites, :action => :new) %>

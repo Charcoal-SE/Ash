@@ -1,0 +1,45 @@
+<h3>Edit Tech</h3>
+<p>Change a record for a website's technical contact. This information should come from <code>whois</code> where
+  possible. Leave fields blank if you don't know or can't find the info.</p>
+
+<% if @tech.errors.any? %>
+  <div class="errors text-danger">
+    The following <%= "error".pluralize(@tech.errors.count) %> prevented this record from being saved:
+    <ul>
+      <% @tech.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @tech, :url => url_for(:controller => :techs, :action => :create) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name, class: "form-control" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :org, "Organization" %><br/>
+    <%= f.text_field :org, class: "form-control" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :country %><br/>
+    <%= f.text_field :country, class: "form-control" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :email %><br/>
+    <%= f.email_field :email, class: "form-control" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :phone %><br/>
+    <%= f.text_field :phone, class: "form-control" %>
+  </div><br/>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-success" %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+<h3><%= @website.url %></h3>
+<p>Recorded <%= time_ago_in_words(@website.created_at) %> ago.</p>
+<%= if @website.updated_at > @website.created_at %>
+  <p>Edited <%= time_ago_in_words(@website.updated_at) %> ago.</p>
+<% end %>
+
+<ul>
+  <li><strong>Nameserver:</strong> <%= @website.name_server %></li>
+</ul>

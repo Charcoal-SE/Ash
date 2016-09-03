@@ -1,0 +1,17 @@
+<h3>Tech: <%= @tech.name %></h3>
+<p>Created <%= time_ago_in_words(@tech.created_at) %> ago.</p>
+<% if @tech.updated_at > @tech.created_at %>
+  <p>Edited <%= time_ago_in_words(@tech.updated_at) %> ago.</p>
+<% end %>
+
+<ul>
+  <li><strong>Organization:</strong> <%= @tech.org %></li>
+  <li><strong>Country:</strong> <%= @tech.country %></li>
+  <li><strong>Email:</strong> <%= @tech.email %></li>
+  <li><strong>Phone:</strong> <%= @tech.phone %></li>
+
+<p>Technical contact for <%= pluralize(@tech.websites.count, 'website') %>:</p>
+
+<% @tech.websites.each do |website| %>
+  <%= render 'websites/website', :website => website %>
+<% end %>
