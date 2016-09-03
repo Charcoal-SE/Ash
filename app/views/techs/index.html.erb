@@ -1,27 +1,29 @@
-<h3>Websites</h3>
-<p>Every recorded website. URL's not linked to protect the innocent.</p>
+<h3>Techs</h3>
+<p>Technical contacts for websites.</p>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>URL</th>
-      <th>Nameserver</th>
-      <th>Admin</th>
-      <th>Tech</th>
-      <th>Registrar</th>
+      <th>Name</th>
+      <th>Organization</th>
+      <th>Country</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th># Websites</th>
     </tr>
   </thead>
   <tbody>
-    <% @websites.each do |website| %>
+    <% @techs.each do |tech| %>
       <tr>
-        <td><%= website.url %></td>
-        <td><%= website.name_server %></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= tech.name %></td>
+        <td><%= tech.org %></td>
+        <td><%= tech.country %></td>
+        <td><%= tech.email %></td>
+        <td><%= tech.phone %></td>
+        <td><%= tech.websites.count %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "Add a website", url_for(:controller => :websites, :action => :new) %>
+<%= link_to "Add a technical contact", url_for(:controller => :techs, :action => :new) %>
