@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  url: MyString
-  email: MyString
-  phone: MyString
+  name: Registrar1
+  url: http://registrar1.com/
+  email: abuse@registrar1.com
+  phone: 11111111111
 
 two:
-  name: MyString
-  url: MyString
-  email: MyString
-  phone: MyString
+  name: Registrar2
+  url: http://registrar2.com/
+  email: abuse@registrar2.com
+  phone: 22222222222

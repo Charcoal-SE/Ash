@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  url: MyString
-  post_count: 
+  url: http://website1.com/
+  name_server: ns.server.com
+  post_count: 234
 
 two:
-  url: MyString
-  post_count: 
+  url: http://website2.com/
+  name_server: ns2.server2.com
+  post_count: 432

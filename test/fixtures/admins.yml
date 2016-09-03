@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  org: MyString
-  country: MyString
-  email: MyString
-  phone: MyString
+  name: Admin1
+  org: AdminOrg1
+  country: USA
+  email: admin@adminorg1.com
+  phone: 11111111111
 
 two:
-  name: MyString
-  org: MyString
-  country: MyString
-  email: MyString
-  phone: MyString
+  name: Admin2
+  org: AdminOrg2
+  country: India
+  email: admin@adminorg2.com
+  phone: 22222222222
