@@ -30,6 +30,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><%= link_to "websites", url_for(:controller => :websites, :action => :index), class: (controller.class == DashboardController ? "active" : "") %></li>
+            <li><%= link_to "techs", url_for(:controller => :techs, :action => :index), class: (controller.class == TechsController ? "active" : "") %></li>
+            <li><%= link_to "admins", url_for(:controller => :admins, :action => :index), class: (controller.class == AdminsController ? "active" : "") %></li>
+            <li><%= link_to "registrars", url_for(:controller => :registrars, :action => :index), class: (controller.class == RegistrarsController ? "active" : "") %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><code><%= Rails.env %></code></a></li>
