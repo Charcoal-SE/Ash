@@ -1,17 +1,16 @@
-<h3>Admin: <%= @admin.name %></h3>
-<p>Created <%= time_ago_in_words(@admin.created_at) %> ago.</p>
-<% if @admin.updated_at > @admin.created_at %>
-  <p>Edited <%= time_ago_in_words(@admin.updated_at) %> ago.</p>
+<h3>Registrar: <%= @registrar.name %></h3>
+<p>Created <%= time_ago_in_words(@registrar.created_at) %> ago.</p>
+<% if @registrar.updated_at > @registrar.created_at %>
+  <p>Edited <%= time_ago_in_words(@registrar.updated_at) %> ago.</p>
 <% end %>
 
 <ul>
-  <li><strong>Organization:</strong> <%= @admin.org %></li>
-  <li><strong>Country:</strong> <%= @admin.country %></li>
-  <li><strong>Email:</strong> <%= @admin.email %></li>
-  <li><strong>Phone:</strong> <%= @admin.phone %></li>
+  <li><strong>Website:</strong> <%= link_to @registrar.url %></li>
+  <li><strong>Email:</strong> <%= @registrar.email %></li>
+  <li><strong>Phone:</strong> <%= @registrar.phone %></li>
 
-<p>Administrative contact for <%= pluralize(@admin.websites.count, 'website') %>:</p>
+<p>Registrar for <%= pluralize(@registrar.websites.count, 'website') %>:</p>
 
-<% @admin.websites.each do |website| %>
+<% @registrar.websites.each do |website| %>
   <%= render 'websites/website', :website => website %>
 <% end %>

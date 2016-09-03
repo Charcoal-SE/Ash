@@ -1,33 +1,29 @@
-<h3>New Admin</h3>
-<p>Add a record for a website's admin contact. This information should come from <code>whois</code> where
+<h3>New Registrar</h3>
+<p>Create a record for a website's registrar. This information should come from <code>whois</code> where
   possible. Leave fields blank if you don't know or can't find the info.</p>
 
-<% if @admin.errors.any? %>
+<% if @registrar.errors.any? %>
   <div class="errors text-danger">
-    The following <%= "error".pluralize(@admin.errors.count) %> prevented this record from being saved:
+    The following <%= "error".pluralize(@registrar.errors.count) %> prevented this record from being saved:
     <ul>
-      <% @admin.errors.full_messages.each do |message| %>
+      <% @registrar.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
   </div>
 <% end %>
 
-<%= form_for @admin, :url => url_for(:controller => :admins, :action => :create) do |f| %>
+<%= form_for @registrar, :url => url_for(:controller => :registrars, :action => :create) do |f| %>
   <div class="field">
     <%= f.label :name %><br/>
     <%= f.text_field :name, class: "form-control" %>
   </div><br/>
 
   <div class="field">
-    <%= f.label :org, "Organization" %><br/>
+    <%= f.label :url, "Website Address" %><br/>
     <%= f.text_field :org, class: "form-control" %>
   </div><br/>
 
-  <div class="field">
-    <%= f.label :country %><br/>
-    <%= f.text_field :country, class: "form-control" %>
-  </div><br/>
 
   <div class="field">
     <%= f.label :email %><br/>
