@@ -52,7 +52,7 @@ class AdminsController < ApplicationController
     @admins = Admin.where('name LIKE ?', "%#{params[:q]}%").or(Admin.where('email LIKE ?', "%#{params[:q]}%"))
     count = @admins.count
     @admins = @admins.paginate(:page => params[:page], :per_page => 20)
-    render :json => { :results => @admins, :has_more => (count > (params[:page] || 1) * 20) }
+    render :json => { :items => @admins, :has_more => (count > (params[:page] || 1) * 20) }
   end
 
   private

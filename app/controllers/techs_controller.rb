@@ -52,7 +52,7 @@ class TechsController < ApplicationController
     @techs = Tech.where('name LIKE ?', "%#{params[:q]}%").or(Tech.where('email LIKE ?', "%#{params[:q]}%"))
     count = @techs.count
     @techs = @techs.paginate(:page => params[:page], :per_page => 20)
-    render :json => { :results => @techs, :has_more => (count > (params[:page] || 1) * 20) }
+    render :json => { :items => @techs, :has_more => (count > (params[:page] || 1) * 20) }
   end
 
   private

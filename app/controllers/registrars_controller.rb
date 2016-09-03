@@ -52,7 +52,7 @@ class RegistrarsController < ApplicationController
     @registrars = Registrar.where('name LIKE ?', "%#{params[:q]}%").or(Registrar.where('email LIKE ?', "%#{params[:q]}%"))
     count = @registrars.count
     @registrars = @registrars.paginate(:page => params[:page], :per_page => 20)
-    render :json => { :results => @registrars, :has_more => (count > (params[:page] || 1) * 20) }
+    render :json => { :items => @registrars, :has_more => (count > (params[:page] || 1) * 20) }
   end
 
   private

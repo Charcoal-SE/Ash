@@ -16,7 +16,7 @@ $(document).on('ready turbolinks:load', () ->
       processResults: (data, params) ->
         results = []
         $.each(data.items, (index, item) ->
-          results.push({id: item.id, text: item.name})
+          results.push({id: item.id, text: item.name + "(" + item.url + ")"})
         )
         return {results: results, pagination: {more: data.has_more}}
       cache: true
@@ -34,7 +34,7 @@ $(document).on('ready turbolinks:load', () ->
       processResults: (data, params) ->
         results = []
         $.each(data.items, (index, item) ->
-          results.push({id: item.id, text: item.name})
+          results.push({id: item.id, text: item.name + "(" + item.email + ")"})
         )
         return {results: results, pagination: {more: data.has_more}}
       cache: true
@@ -52,7 +52,7 @@ $(document).on('ready turbolinks:load', () ->
       processResults: (data, params) ->
         results = []
         $.each(data.items, (index, item) ->
-          results.push({id: item.id, text: item.name})
+          results.push({id: item.id, text: item.name + "(" + item.email + ")"})
         )
         return {results: results, pagination: {more: data.has_more}}
       cache: true
