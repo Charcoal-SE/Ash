@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!, :except => [:index, :show, :find]
   before_action :verify_admin, :only => [:destroy]
-  before_action :set_admin, :except => [:index, :new, :create]
+  before_action :set_admin, :except => [:index, :new, :create, :find]
 
   def index
     @admins = Admin.all
@@ -46,6 +46,13 @@ class AdminsController < ApplicationController
       flash[:danger] = "Failed to remove admin!"
       render :show
     end
+  end
+
+  def find
+    @admins = Admin.where('name LIKE ?', "%#{params[:q]}%").or(Admin.where('email LIKE ?', "%#{params[:q]}%"))
+    count = @admins.count
+    @admins = @admins.paginate(:page => params[:page], :per_page => 20)
+    render :json => { :results => @admins, :has_more => (count > (params[:page] || 1) * 20) }
   end
 
   private

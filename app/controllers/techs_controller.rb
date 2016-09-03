@@ -1,7 +1,7 @@
 class TechsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!, :except => [:index, :show, :find]
   before_action :verify_admin, :only => [:destroy]
-  before_action :set_tech, :except => [:index, :new, :create]
+  before_action :set_tech, :except => [:index, :new, :create, :find]
 
   def index
     @techs = Tech.all
@@ -46,6 +46,13 @@ class TechsController < ApplicationController
       flash[:danger] = "Failed to remove tech!"
       render :show
     end
+  end
+
+  def find
+    @techs = Tech.where('name LIKE ?', "%#{params[:q]}%").or(Tech.where('email LIKE ?', "%#{params[:q]}%"))
+    count = @techs.count
+    @techs = @techs.paginate(:page => params[:page], :per_page => 20)
+    render :json => { :results => @techs, :has_more => (count > (params[:page] || 1) * 20) }
   end
 
   private

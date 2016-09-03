@@ -1,7 +1,7 @@
 class RegistrarsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!, :except => [:index, :show, :find]
   before_action :verify_admin, :only => [:destroy]
-  before_action :set_registrar, :except => [:index, :new, :create]
+  before_action :set_registrar, :except => [:index, :new, :create, :find]
 
   def index
     @registrars = Registrar.all
@@ -46,6 +46,13 @@ class RegistrarsController < ApplicationController
       flash[:danger] = "Failed to remove registrar!"
       render :show
     end
+  end
+
+  def find
+    @registrars = Registrar.where('name LIKE ?', "%#{params[:q]}%").or(Registrar.where('email LIKE ?', "%#{params[:q]}%"))
+    count = @registrars.count
+    @registrars = @registrars.paginate(:page => params[:page], :per_page => 20)
+    render :json => { :results => @registrars, :has_more => (count > (params[:page] || 1) * 20) }
   end
 
   private
