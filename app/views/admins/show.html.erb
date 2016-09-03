@@ -1,9 +1,17 @@
-<h3><%= @website.url %></h3>
-<p>Recorded <%= time_ago_in_words(@website.created_at) %> ago.</p>
-<%= if @website.updated_at > @website.created_at %>
-  <p>Edited <%= time_ago_in_words(@website.updated_at) %> ago.</p>
+<h3>Admin: <%= @admin.name %></h3>
+<p>Created <%= time_ago_in_words(@admin.created_at) %> ago.</p>
+<% if @admin.updated_at > @admin.created_at %>
+  <p>Edited <%= time_ago_in_words(@admin.updated_at) %> ago.</p>
 <% end %>
 
 <ul>
-  <li><strong>Nameserver:</strong> <%= @website.name_server %></li>
-</ul>
+  <li><strong>Organization:</strong> <%= @admin.org %></li>
+  <li><strong>Country:</strong> <%= @admin.country %></li>
+  <li><strong>Email:</strong> <%= @admin.email %></li>
+  <li><strong>Phone:</strong> <%= @admin.phone %></li>
+
+<p>Administrative contact for <%= pluralize(@admin.websites.count, 'website') %>:</p>
+
+<% @admin.websites.each do |website| %>
+  <%= render 'websites/website', :website => website %>
+<% end %>
