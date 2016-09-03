@@ -23,6 +23,24 @@
     <%= f.text_field :name_server, class: "form-control", placeholder: "find it with whois, or leave it blank if you don't know" %>
   </div><br/>
 
+  <div class="field">
+    <%= f.label :registrar_id, "Registrar" %><br/>
+    <p>(Can't find the right one? <%= link_to "Create a new entry.", url_for(:controller => :registrars, :action => :new) %>)</p>
+    <%= f.select :registrar_id, options_for_select(Registrar.all.limit(100).map{|r| ["#{r.name} (#{r.url})", r.id]}), { include_blank: true }, { class: "form-control" } %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :admin_id, "Admin Contact" %><br/>
+    <p>(Can't find the right one? <%= link_to "Create a new entry.", url_for(:controller => :admins, :action => :new) %>)</p>
+    <%= f.select :admin_id, options_for_select(Admin.all.limit(100).map{|a| ["#{a.name} (#{a.email})", a.id]}), { include_blank: true }, { class: "form-control" } %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :tech_id, "Technical Contact" %><br/>
+    <p>(Can't find the right one? <%= link_to "Create a new entry.", url_for(:controller => :techs, :action => :new) %>)</p>
+    <%= f.select :tech_id, options_for_select(Tech.all.limit(100).map{|t| ["#{t.name} (#{t.email})", t.id]}), { include_blank: true }, { class: "form-control" } %>
+  </div><br/>
+
   <div class="actions">
     <%= f.submit "Save", class: "btn btn-success" %>
   </div>
