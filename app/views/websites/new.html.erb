@@ -1,0 +1,29 @@
+<h3>New Website</h3>
+<p>Add a website record. If you don't know any of this information, try using <code>whois</code>.</p>
+
+<% if @website.errors.any? %>
+  <div class="errors text-danger">
+    The following <%= "error".pluralize(@website.errors.count) %> prevented this record from being saved:
+    <ul>
+      <% @website.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @website, :url => url_for(:controller => :websites, :action => :create) do |f| %>
+  <div class="field">
+    <%= f.label :url, "URL" %><br/>
+    <%= f.text_field :url, class: "form-control", placeholder: "use the root URL of the site" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :name_server %><br/>
+    <%= f.text_field :name_server, class: "form-control", placeholder: "find it with whois, or leave it blank if you don't know" %>
+  </div><br/>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-success" %>
+  </div>
+<% end %>
