@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TechsControllerTest < ActionDispatch::IntegrationTest
+class TechsControllerTest < ActionController::TestCase
   test "should get index" do
     sign_out :user
     get :index

@@ -9,3 +9,4 @@ admin:
   username: admin
   email: admin@example.com
   encrypted_password: abcdefghijklmnopqrstuvwxyz
+  is_admin: true
