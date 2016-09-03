@@ -18,7 +18,7 @@ class RegistrarsController < ApplicationController
     @registrar = Registrar.create registrar_params
     if @registrar.save
       flash[:success] = "Successfully created."
-      redirect_to path_for(:controller => :registrar, :action => :show, :id => @registrar.id)
+      redirect_to url_for(:controller => :registrar, :action => :show, :id => @registrar.id)
     else
       flash[:danger] = "Failed to create registrar!"
       render :new
@@ -31,7 +31,7 @@ class RegistrarsController < ApplicationController
   def update
     if @registrar.update registrar_params
       flash[:success] =  "Successfully updated."
-      redirect_to path_for(:controller => :registrars, :action => :show, :id => @registrar.id)
+      redirect_to url_for(:controller => :registrars, :action => :show, :id => @registrar.id)
     else
       flash[:danger] = "Failed to update registrar!"
       render :edit
@@ -41,7 +41,7 @@ class RegistrarsController < ApplicationController
   def destroy
     if @registrar.destroy
       flash[:success] = "Successfully removed."
-      redirect_to path_for(:controller => :registrars, :action => :index)
+      redirect_to url_for(:controller => :registrars, :action => :index)
     else
       flash[:danger] = "Failed to remove registrar!"
       render :show

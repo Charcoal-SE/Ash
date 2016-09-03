@@ -18,7 +18,7 @@ class TechsController < ApplicationController
     @tech = Tech.create tech_params
     if @tech.save
       flash[:success] = "Successfully created."
-      redirect_to path_for(:controller => :tech, :action => :show, :id => @tech.id)
+      redirect_to url_for(:controller => :tech, :action => :show, :id => @tech.id)
     else
       flash[:danger] = "Failed to create tech!"
       render :new
@@ -31,7 +31,7 @@ class TechsController < ApplicationController
   def update
     if @tech.update tech_params
       flash[:success] =  "Successfully updated."
-      redirect_to path_for(:controller => :techs, :action => :show, :id => @tech.id)
+      redirect_to url_for(:controller => :techs, :action => :show, :id => @tech.id)
     else
       flash[:danger] = "Failed to update tech!"
       render :edit
@@ -41,7 +41,7 @@ class TechsController < ApplicationController
   def destroy
     if @tech.destroy
       flash[:success] = "Successfully removed."
-      redirect_to path_for(:controller => :techs, :action => :index)
+      redirect_to url_for(:controller => :techs, :action => :index)
     else
       flash[:danger] = "Failed to remove tech!"
       render :show

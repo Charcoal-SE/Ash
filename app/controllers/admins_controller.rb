@@ -18,7 +18,7 @@ class AdminsController < ApplicationController
     @admin = Admin.create admin_params
     if @admin.save
       flash[:success] = "Successfully created."
-      redirect_to path_for(:controller => :admin, :action => :show, :id => @admin.id)
+      redirect_to url_for(:controller => :admin, :action => :show, :id => @admin.id)
     else
       flash[:danger] = "Failed to create admin!"
       render :new
@@ -31,7 +31,7 @@ class AdminsController < ApplicationController
   def update
     if @admin.update admin_params
       flash[:success] =  "Successfully updated."
-      redirect_to path_for(:controller => :admins, :action => :show, :id => @admin.id)
+      redirect_to url_for(:controller => :admins, :action => :show, :id => @admin.id)
     else
       flash[:danger] = "Failed to update admin!"
       render :edit
@@ -41,7 +41,7 @@ class AdminsController < ApplicationController
   def destroy
     if @admin.destroy
       flash[:success] = "Successfully removed."
-      redirect_to path_for(:controller => :admins, :action => :index)
+      redirect_to url_for(:controller => :admins, :action => :index)
     else
       flash[:danger] = "Failed to remove admin!"
       render :show

@@ -19,7 +19,7 @@ class WebsitesController < ApplicationController
     @website.post_count = 1
     if @website.save
       flash[:success] = "Successfully created."
-      redirect_to path_for(:controller => :websites, :action => :show, :id => @website.id)
+      redirect_to url_for(:controller => :websites, :action => :show, :id => @website.id)
     else
       flash[:danger] = "Failed to create website!"
       render :new
@@ -32,7 +32,7 @@ class WebsitesController < ApplicationController
   def update
     if @website.update website_params
       flash[:success] =  "Successfully updated."
-      redirect_to path_for(:controller => :website, :action => :show, :id => @website.id)
+      redirect_to url_for(:controller => :website, :action => :show, :id => @website.id)
     else
       flash[:danger] = "Failed to update website!"
       render :edit
@@ -42,7 +42,7 @@ class WebsitesController < ApplicationController
   def destroy
     if @website.destroy
       flash[:success] = "Successfully removed."
-      redirect_to path_for(:controller => :websites, :action => :index)
+      redirect_to url_for(:controller => :websites, :action => :index)
     else
       flash[:danger] = "Failed to remove website!"
       render :show
