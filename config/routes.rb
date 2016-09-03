@@ -9,4 +9,28 @@ Rails.application.routes.draw do
   get    'websites/:id/edit',                                :to => 'websites#edit'
   patch  'websites/:id/edit',                                :to => 'websites#update'
   delete 'websites/:id',                                     :to => 'websites#destroy'
+
+  get    'techs',                                            :to => 'techs#index'
+  get    'techs/new',                                        :to => 'techs#new'
+  post   'techs/new',                                        :to => 'techs#create'
+  get    'techs/:id',                                        :to => 'techs#show'
+  get    'techs/:id/edit',                                   :to => 'techs#edit'
+  patch  'techs/:id/edit',                                   :to => 'techs#update'
+  delete 'techs/:id',                                        :to => 'techs#destroy'
+
+  get    'admins',                                           :to => 'admins#index'
+  get    'admins/new',                                       :to => 'admins#new'
+  post   'admins/new',                                       :to => 'admins#create'
+  get    'admins/:id',                                       :to => 'admins#show'
+  get    'admins/:id/edit',                                  :to => 'admins#edit'
+  patch  'admins/:id/edit',                                  :to => 'admins#update'
+  delete 'admins/:id',                                       :to => 'admins#destroy'
+
+  get    'registrars',                                       :to => 'registrars#index'
+  get    'registrars/new',                                   :to => 'registrars#new'
+  post   'registrars/new',                                   :to => 'registrars#create'
+  get    'registrars/:id',                                   :to => 'registrars#show'
+  get    'registrars/:id/edit',                              :to => 'registrars#edit'
+  patch  'registrars/:id/edit',                              :to => 'registrars#update'
+  delete 'registrars/:id',                                   :to => 'registrars#destroy'
 end
