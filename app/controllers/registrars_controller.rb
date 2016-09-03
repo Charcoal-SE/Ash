@@ -18,7 +18,7 @@ class RegistrarsController < ApplicationController
     @registrar = Registrar.create registrar_params
     if @registrar.save
       flash[:success] = "Successfully created."
-      redirect_to url_for(:controller => :registrar, :action => :show, :id => @registrar.id)
+      redirect_to url_for(:controller => :registrars, :action => :show, :id => @registrar.id)
     else
       flash[:danger] = "Failed to create registrar!"
       render :new

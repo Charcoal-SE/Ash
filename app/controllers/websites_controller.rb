@@ -32,7 +32,7 @@ class WebsitesController < ApplicationController
   def update
     if @website.update website_params
       flash[:success] =  "Successfully updated."
-      redirect_to url_for(:controller => :website, :action => :show, :id => @website.id)
+      redirect_to url_for(:controller => :websites, :action => :show, :id => @website.id)
     else
       flash[:danger] = "Failed to update website!"
       render :edit
@@ -55,6 +55,6 @@ class WebsitesController < ApplicationController
     end
 
     def website_params
-      params.require(:website).permit(:url, :name_server)
+      params.require(:website).permit(:url, :name_server, :admin_id, :tech_id, :registrar_id)
     end
 end

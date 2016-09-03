@@ -18,7 +18,7 @@ class TechsController < ApplicationController
     @tech = Tech.create tech_params
     if @tech.save
       flash[:success] = "Successfully created."
-      redirect_to url_for(:controller => :tech, :action => :show, :id => @tech.id)
+      redirect_to url_for(:controller => :techs, :action => :show, :id => @tech.id)
     else
       flash[:danger] = "Failed to create tech!"
       render :new

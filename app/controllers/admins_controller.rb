@@ -18,7 +18,7 @@ class AdminsController < ApplicationController
     @admin = Admin.create admin_params
     if @admin.save
       flash[:success] = "Successfully created."
-      redirect_to url_for(:controller => :admin, :action => :show, :id => @admin.id)
+      redirect_to url_for(:controller => :admins, :action => :show, :id => @admin.id)
     else
       flash[:danger] = "Failed to create admin!"
       render :new

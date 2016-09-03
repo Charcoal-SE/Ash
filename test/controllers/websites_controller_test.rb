@@ -21,7 +21,7 @@ class WebsitesControllerTest < ActionController::TestCase
 
   test "should create new website" do
     sign_in users(:standard)
-    post :create, params: { website: { url: "http://website3.com/", name_server: "ns3.server3.com", post_count: 1 } }
+    post :create, params: { website: { url: "http://website3.com/", name_server: "ns3.server3.com", post_count: 1, admin_id: admins(:one).id, tech_id: teches(:one).id, registrar_id: registrars(:one).id } }
     assert_response 302
   end
 
@@ -33,7 +33,7 @@ class WebsitesControllerTest < ActionController::TestCase
 
   test "should update existing website" do
     sign_in users(:standard)
-    patch :update, params: { id: websites(:one).id, website: { url: "http://website4.com/", name_server: "ns4.server4.com", post_count: 789 } }
+    patch :update, params: { id: websites(:one).id, website: { url: "http://website4.com/", name_server: "ns4.server4.com", post_count: 789, admin_id: admins(:one).id, tech_id: teches(:one).id, registrar_id: registrars(:one).id } }
     assert_response 302
   end
 

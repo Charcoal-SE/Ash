@@ -21,7 +21,7 @@ class TechsControllerTest < ActionController::TestCase
 
   test "should create new tech" do
     sign_in users(:standard)
-    post :create, params: { teche: { name: "tech3", org: "techOrg3", country: "UK", email: "tech@techorg3.com", phone: "33333333333" } }
+    post :create, params: { tech: { name: "tech3", org: "techOrg3", country: "UK", email: "tech@techorg3.com", phone: "33333333333" } }
     assert_response 302
   end
 
@@ -33,7 +33,7 @@ class TechsControllerTest < ActionController::TestCase
 
   test "should update existing tech" do
     sign_in users(:standard)
-    patch :update, params: { id: teches(:one).id, teche: { name: "tech4", org: "techeOrg4", country: "Sweden", email: "tech@techorg4.com", phone: "44444444444" } }
+    patch :update, params: { id: teches(:one).id, tech: { name: "tech4", org: "techeOrg4", country: "Sweden", email: "tech@techorg4.com", phone: "44444444444" } }
     assert_response 302
   end
 
