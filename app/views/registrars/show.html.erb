@@ -12,7 +12,7 @@
 
 <p>
   <%= link_to "edit", url_for(:controller => :registrars, :action => :edit, :id => @registrar.id) %>
-  <% if current_user.is_admin %>
+  <% if user_signed_in? && current_user.is_admin %>
     | <%= link_to "delete", url_for(:controller => :registrars, :action => :destroy, :id => @registrar.id),
           :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "text-danger" %>
   <% end %>
