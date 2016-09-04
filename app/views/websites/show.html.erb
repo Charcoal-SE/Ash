@@ -4,6 +4,14 @@
   <p>Edited <%= time_ago_in_words(@website.updated_at) %> ago.</p>
 <% end %>
 
+<p>
+  <%= link_to "edit", url_for(:controller => :websites, :action => :edit, :id => @website.id) %>
+  <% if current_user.is_admin %>
+    | <%= link_to "delete", url_for(:controller => :websites, :action => :destroy, :id => @website.id),
+          :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "text-danger" %>
+  <% end %>
+</p>
+
 <ul>
   <li><strong>Nameserver:</strong> <%= @website.name_server %></li>
   <li><strong>Admin:</strong> <%= link_to @website.admin.name, url_for(:controller => :admins, :action => :show, :id => @website.admin.id) %></li>

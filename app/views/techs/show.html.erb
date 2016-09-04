@@ -11,6 +11,14 @@
   <li><strong>Phone:</strong> <%= @tech.phone %></li>
 </ul>
 
+<p>
+  <%= link_to "edit", url_for(:controller => :techs, :action => :edit, :id => @tech.id) %>
+  <% if current_user.is_admin %>
+    | <%= link_to "delete", url_for(:controller => :techs, :action => :destroy, :id => @tech.id),
+          :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "text-danger" %>
+  <% end %>
+</p>
+
 <p>Technical contact for <%= pluralize(@tech.websites.count, 'website') %>:</p>
 
 <% @tech.websites.each do |website| %>
