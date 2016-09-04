@@ -1,0 +1,13 @@
+<div class="tech clearfix">
+  <div class="pull-left col-md-4">
+    <%= link_to tech.name, url_for(:controller => :techs, :action => :show, :id => tech.id) %>
+    (<%= tech.org %>)
+  </div>
+  <div class="pull-left col-md-4">
+    <%= pluralize(tech.site_count, 'site') %>
+  </div>
+  <div class="pull-left col-md-4">
+    T: <%= tech.phone %>;
+    E: <%= tech.email %>
+  </div>
+</div>

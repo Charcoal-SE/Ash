@@ -1,3 +1,14 @@
 // Place all the styles related to the Techs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tech {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  margin: 3px;
+}
+
+.tech ~ .tech {
+  border-top: none;
+}

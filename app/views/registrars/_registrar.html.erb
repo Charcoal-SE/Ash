@@ -1,0 +1,13 @@
+<div class="registrar clearfix">
+  <div class="pull-left col-md-4">
+    <%= link_to registrar.name, url_for(:controller => :registrar, :action => :show, :id => registrar.id) %>
+    (<%= registrar.url %>)
+  </div>
+  <div class="pull-left col-md-4">
+    <%= pluralize(registrar.site_count, 'site') %>
+  </div>
+  <div class="pull-left col-md-4">
+    T: <%= registrar.phone %>;
+    E: <%= registrar.email %>
+  </div>
+</div>
