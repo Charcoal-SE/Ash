@@ -7,3 +7,13 @@
 <% @admins.each do |admin| %>
   <%= render 'admins/admin', :admin => admin %>
 <% end %>
+
+<h3>Common Techs</h3>
+<% @techs.each do |tech| %>
+  <%= render 'techs/tech', :tech => tech %>
+<% end %>
+
+<h3>Common Registrars</h3>
+<% @registrars.each do |registrar| %>
+  <%= render 'registrars/registrar', :registrar => registrar %>
+<% end %>
