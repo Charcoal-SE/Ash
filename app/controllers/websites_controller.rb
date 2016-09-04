@@ -18,6 +18,15 @@ class WebsitesController < ApplicationController
     @website = Website.create website_params
     @website.post_count = 1
     if @website.save
+      @website.admin.site_count += 1;
+      @website.admin.save!
+
+      @website.tech.site_count += 1;
+      @website.tech.save!
+
+      @website.registrar.site_count += 1;
+      @website.registrar.save!
+
       flash[:success] = "Successfully created."
       redirect_to url_for(:controller => :websites, :action => :show, :id => @website.id)
     else
