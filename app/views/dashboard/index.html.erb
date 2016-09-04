@@ -1,0 +1,4 @@
+<h3>Recently Added Websites</h3>
+<% @websites.each do |website| %>
+  <%= render 'websites/website', :website => website %>
+<% end %>
