@@ -1,5 +1,11 @@
 <div class="website clearfix">
-  <span class="pull-left"><strong><%= website.url %></strong></span>
-  <span class="pull-right">NS: <%= website.name_server %></strong></span>
+  <div class="pull-left col-md-4">
+    <%= website.url %>
+  </div>
+  <div class="pull-left col-md-4">
+    NS: <%= website.name_server %>
+  </div>
+  <div class="pull-right col-md-4">
+    <%= link_to "details", url_for(:controller => :websites, :action => :show, :id => website.id) %>
+  </div>
 </div>
-<hr/>
