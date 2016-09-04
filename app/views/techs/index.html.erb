@@ -15,7 +15,7 @@
   <tbody>
     <% @techs.each do |tech| %>
       <tr>
-        <td><%= tech.name %></td>
+        <td><%= link_to tech.name, url_for(:controller => :techs, :action => :show, :id => tech.id) %></td>
         <td><%= tech.org %></td>
         <td><%= tech.country %></td>
         <td><%= tech.email %></td>

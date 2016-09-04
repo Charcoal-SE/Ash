@@ -14,7 +14,7 @@
   <tbody>
     <% @registrars.each do |registrar| %>
       <tr>
-        <td><%= registrar.name %></td>
+        <td><%= link_to registrar.name, url_for(:controller => :registrars, :action => :show, :id => registrar.id) %></td>
         <td><%= link_to registrar.url %></td>
         <td><%= registrar.email %></td>
         <td><%= registrar.phone %></td>
