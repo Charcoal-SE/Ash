@@ -25,3 +25,7 @@
 </table>
 
 <%= link_to "Add a registrar", url_for(:controller => :registrars, :action => :new) %>
+
+<div class="text-center">
+  <%= will_paginate @registrars, renderer: BootstrapPagination::Rails %>
+</div>

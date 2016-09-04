@@ -27,3 +27,7 @@
 </table>
 
 <%= link_to "Add a technical contact", url_for(:controller => :techs, :action => :new) %>
+
+<div class="text-center">
+  <%= will_paginate @techs, renderer: BootstrapPagination::Rails %>
+</div>

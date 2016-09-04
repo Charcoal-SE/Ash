@@ -4,7 +4,7 @@ class RegistrarsController < ApplicationController
   before_action :set_registrar, :except => [:index, :new, :create, :find]
 
   def index
-    @registrars = Registrar.all
+    @registrars = Registrar.joins(:websites).group('registrars.id').order('count(registrars.id) desc').paginate(:page => params[:page], :per_page => 50)
   end
 
   def show

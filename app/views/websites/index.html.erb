@@ -27,3 +27,7 @@
 </table>
 
 <%= link_to "Add a website", url_for(:controller => :websites, :action => :new) %>
+
+<div class="text-center">
+  <%= will_paginate @websites, renderer: BootstrapPagination::Rails %>
+</div>

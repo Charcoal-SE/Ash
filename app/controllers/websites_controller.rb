@@ -4,7 +4,7 @@ class WebsitesController < ApplicationController
   before_action :set_website, :except => [:index, :new, :create]
 
   def index
-    @websites = Website.all
+    @websites = Website.all.paginate(:page => params[:page], :per_page => 50)
   end
 
   def show

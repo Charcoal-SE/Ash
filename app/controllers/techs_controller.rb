@@ -4,7 +4,7 @@ class TechsController < ApplicationController
   before_action :set_tech, :except => [:index, :new, :create, :find]
 
   def index
-    @techs = Tech.all
+    @techs = Tech.joins(:websites).group('teches.id').order('count(teches.id) desc').paginate(:page => params[:page], :per_page => 50)
   end
 
   def show

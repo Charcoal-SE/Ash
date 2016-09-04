@@ -27,3 +27,7 @@
 </table>
 
 <%= link_to "Add an admin contact", url_for(:controller => :admins, :action => :new) %>
+
+<div class="text-center">
+  <%= will_paginate @admins, renderer: BootstrapPagination::Rails %>
+</div>
