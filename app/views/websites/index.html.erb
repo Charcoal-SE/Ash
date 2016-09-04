@@ -1,5 +1,5 @@
 <h3>Websites</h3>
-<p>Every recorded website. URL's link to more details, not to the spam site.</p>
+<p>Every recorded website. URL's not linked to protect the innocent.</p>
 
 <table class="table table-striped">
   <thead>
@@ -9,16 +9,18 @@
       <th>Admin</th>
       <th>Tech</th>
       <th>Registrar</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @websites.each do |website| %>
       <tr>
-        <td><%= link_to website.url, url_for(:controller => :websites, :action => :show, :id => website.id) %></td>
+        <td><%= website.url %></td>
         <td><%= website.name_server %></td>
         <td><%= link_to website.admin.name, url_for(:controller => :admins, :action => :show, :id => website.admin.id) %></td>
         <td><%= link_to website.tech.name, url_for(:controller => :techs, :action => :show, :id => website.tech.id) %></td>
         <td><%= link_to website.registrar.name, url_for(:controller => :registrars, :action => :show, :id => website.registrar.id) %></td>
+        <td><%= link_to "details", url_for(:controller => :websites, :action => :show, :id => website.id) %></td>
       </tr>
     <% end %>
   </tbody>
