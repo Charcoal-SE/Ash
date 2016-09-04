@@ -15,7 +15,7 @@
 
 <%= form_for @admin, :url => url_for(:controller => :admins, :action => :create) do |f| %>
   <div class="field">
-    <%= f.label :name %><br/>
+    <%= f.label :name %><em>(required)</em><br/>
     <%= f.text_field :name, class: "form-control" %>
   </div><br/>
 
