@@ -6,4 +6,7 @@
 
 <ul>
   <li><strong>Nameserver:</strong> <%= @website.name_server %></li>
+  <li><strong>Admin:</strong> <%= link_to @website.admin.name, url_for(:controller => :admins, :action => :show, :id => @website.admin.id) %></li>
+  <li><strong>Tech:</strong> <%= link_to @website.tech.name, url_for(:controller => :techs, :action => :show, :id => @website.tech.id) %></li>
+  <li><strong>Registrar:</strong> <%= link_to @website.registrar.name, url_for(:controller => :registrars, :action => :show, :id => @website.registrars.id) %></li>
 </ul>
