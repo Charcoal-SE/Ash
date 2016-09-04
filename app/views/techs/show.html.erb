@@ -1,6 +1,6 @@
 <h3>Tech: <%= @tech.name %></h3>
 <p>Created <%= time_ago_in_words(@tech.created_at) %> ago.</p>
-<% if @tech.updated_at > @tech.created_at %>
+<% if @tech.updated_at > @tech.created_at + 5.minutes %>
   <p>Edited <%= time_ago_in_words(@tech.updated_at) %> ago.</p>
 <% end %>
 

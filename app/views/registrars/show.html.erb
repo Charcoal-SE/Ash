@@ -1,6 +1,6 @@
 <h3>Registrar: <%= @registrar.name %></h3>
 <p>Created <%= time_ago_in_words(@registrar.created_at) %> ago.</p>
-<% if @registrar.updated_at > @registrar.created_at %>
+<% if @registrar.updated_at > @registrar.created_at + 5.minutes %>
   <p>Edited <%= time_ago_in_words(@registrar.updated_at) %> ago.</p>
 <% end %>
 
