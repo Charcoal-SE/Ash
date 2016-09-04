@@ -1,9 +1,10 @@
 <div class="admin clearfix">
   <div class="pull-left col-md-4">
     <%= link_to admin.name, url_for(:controller => :admins, :action => :show, :id => admin.id) %>
+    (<%= admin.org %>)
   </div>
   <div class="pull-left col-md-4">
-    <%= admin.org %>
+    <%= pluralize(admin.site_count, 'site') %>
   </div>
   <div class="pull-left col-md-4">
     T: <%= admin.phone %>;
