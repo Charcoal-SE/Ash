@@ -2,3 +2,8 @@
 <% @websites.each do |website| %>
   <%= render 'websites/website', :website => website %>
 <% end %>
+
+<h3>Common Admins</h3>
+<% @admins.each do |admin| %>
+  <%= render 'admins/admin', :admin => admin %>
+<% end %>
