@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
   before_action :set_admin, :except => [:index, :new, :create, :find]
 
   def index
-    @admins = Admin.joins(:websites).group('admins.id').order('count(admins.id) desc').paginate(:page => params[:page], :per_page => 50)
+    @admins = Admin.all.order(:site_count => :desc).paginate(:page => params[:page], :per_page => 50)
   end
 
   def show
