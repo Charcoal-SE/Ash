@@ -7,7 +7,14 @@ class Website < ApplicationRecord
 
   private
     def valid_url
-      if !URI.parse(url)
+      if url.nil? || url.empty?
+        return true
+      end
+
+      begin
+        !URI.parse(url)
+        return true
+      rescue URI::InvalidURIError
         errors.add(:url, "doesn't appear to be a valid URL")
       end
     end
