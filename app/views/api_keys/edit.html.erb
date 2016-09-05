@@ -12,10 +12,10 @@
   </div><br/>
 
   <div class="field">
-    <%= f.label :user, "Owner" %><br/>
-    <%= f.select :user, options_for_select(User.all.map{|u| [u.username, u.id]}, [@api_key.user.username, @api_key.user.id]),
+    <%= f.label :user_id, "Owner" %><br/>
+    <%= f.select :user_id, options_for_select(User.all.map{|u| [u.username, u.id]}, [@api_key.user.username, @api_key.user.id]),
         { :include_blank => true }, { :class => "form-control user-select" } %>
-  </div>
+  </div><br/>
 
   <div class="actions">
     <%= f.submit "Save", :class => "btn btn-success" %>
