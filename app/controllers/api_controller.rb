@@ -1,6 +1,7 @@
 class ApiController < ApplicationController
   before_action :verify_key
   before_action :set_pagesize, :only => [:websites, :admins, :techs, :registrars]
+  skip_before_action :verify_authenticity_token, :only => [:create_website, :create_admin, :create_tech, :create_registrar]
 
   # Write methods
 
