@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get    'websites',                                         :to => 'websites#index'
   get    'websites/new',                                     :to => 'websites#new'
   post   'websites/new',                                     :to => 'websites#create'
+  get    'websites/json',                                    :to => 'websites#json_export'
   get    'websites/:id',                                     :to => 'websites#show'
   get    'websites/:id/edit',                                :to => 'websites#edit'
   patch  'websites/:id/edit',                                :to => 'websites#update'
