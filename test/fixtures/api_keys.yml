@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  key: MyString
-  app_name: MyString
+  key: 469033a59aadeb196e29d6b9f313a2f2a28e8110161379609957f40517f72b52
+  app_name: TestApp1
   user: one
 
 two:
-  key: MyString
-  app_name: MyString
+  key: 7403c1b4fc4345438ccbc3d9c93623413a535fc226d51fdf5cf77e859a4d6bd4
+  app_name: TestApp2
   user: two
