@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   protected
     def verify_admin
-      unless user_signed_in? && current_user.is_admin
+      unless current_user.is_admin
         raise ActionController::RoutingError.new('Not Found')
       end
     end
