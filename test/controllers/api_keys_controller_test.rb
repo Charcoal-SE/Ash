@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ApiKeysControllerTest < ActionDispatch::IntegrationTest
+class ApiKeysControllerTest < ActionController::TestCase
   test "should get index" do
     sign_in users(:admin)
     get :index

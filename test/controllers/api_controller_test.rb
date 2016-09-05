@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ApiControllerTest < ActionDispatch::IntegrationTest
+class ApiControllerTest < ActionController::TestCase
   test "should get websites" do
     sign_out :user
     get :websites, params: { key: api_keys(:one).key }
