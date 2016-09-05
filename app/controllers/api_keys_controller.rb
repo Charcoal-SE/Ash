@@ -1,4 +1,5 @@
 class ApiKeysController < ApplicationController
+  before_action :authenticate_user!
   before_action :verify_admin
   before_action :set_api_key, :only => [:edit, :update, :destroy]
 
