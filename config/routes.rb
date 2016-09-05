@@ -53,4 +53,6 @@ Rails.application.routes.draw do
   post   'api/admins',                                       :to => 'api#create_admin'
   post   'api/techs',                                        :to => 'api#create_tech'
   post   'api/registrars',                                   :to => 'api#create_registrar'
+
+  get    'users/find',                                       :to => 'users#find'
 end
