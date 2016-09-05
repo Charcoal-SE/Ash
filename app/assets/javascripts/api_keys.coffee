@@ -16,7 +16,7 @@ $(document).on('ready turbolinks:load', () ->
       processResults: (data, params) ->
         results = []
         $.each(data.items, (index, item) ->
-          results.push({id: item.id, text: item.name + "(" + item.url + ")"})
+          results.push({id: item.id, text: item.username})
         )
         return {results: results, pagination: {more: data.has_more}}
       cache: true
