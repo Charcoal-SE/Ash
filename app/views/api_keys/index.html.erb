@@ -1,0 +1,27 @@
+<h3>API Keys</h3>
+<p>All the API keys that are allowed to interact with the API.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>App Name</th>
+      <th>Owner</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @api_keys.each do |key| %>
+      <tr>
+        <td><%= key.key %></td>
+        <td><%= key.app_name %></td>
+        <td><%= key.user.username %></td>
+        <td><%= link_to "edit", url_for(:controller => :api_keys, :action => :edit, :id => key.id) %></td>
+        <td><%= link_to "delete", url_for(:controller => :api_keys, :action => :destroy, :id => key.id),
+                :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "text-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New key", url_for(:controller => :api_keys, :action => :new) %>

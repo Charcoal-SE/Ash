@@ -8,6 +8,7 @@ class ApiKeysController < ApplicationController
 
   def new
     @api_key = ApiKey.new
+    @api_key.key = Digest::SHA256.hexdigest("#{rand(0..9e9)}#{Time.now}")
   end
 
   def create

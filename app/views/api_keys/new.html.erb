@@ -1,0 +1,22 @@
+<h3>New API key</h3>
+
+<%= form_for @api_key, url: url_for(:controller => :api_keys, :action => :create) do |f| %>
+  <div class="field">
+    <%= f.label :key %><br/>
+    <%= f.text_field :key, :class => "form-control" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :app_name %><br/>
+    <%= f.text_field :app_name, :class => "form-control" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :user, "Owner" %><br/>
+    <%= f.select :user, options_for_select(User.all.map{|u| [u.username, u.id]}), { :include_blank => true }, { :class => "form-control user-select" } %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save", :class => "btn btn-success" %>
+  </div>
+<% end %>
