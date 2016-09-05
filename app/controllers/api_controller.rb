@@ -66,7 +66,7 @@ class ApiController < ApplicationController
   end
 
   def registrars
-    @registrars = registrar.order(:created_at => :desc)
+    @registrars = Registrar.order(:created_at => :desc)
     count = @registrars.count
     @registrars = @registrars.paginate(:page => params[:page], :per_page => @pagesize)
     @has_more = has_more?(count, params[:page])
