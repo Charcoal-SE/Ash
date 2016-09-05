@@ -1,7 +1,7 @@
 class WebsitesController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!, :except => [:index, :show, :json_export]
   before_action :verify_admin, :only => [:destroy]
-  before_action :set_website, :except => [:index, :new, :create]
+  before_action :set_website, :except => [:index, :new, :create, :json_export]
 
   def index
     @websites = Website.all.order(:created_at => :desc).paginate(:page => params[:page], :per_page => 50)
