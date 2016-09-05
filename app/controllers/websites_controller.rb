@@ -4,7 +4,7 @@ class WebsitesController < ApplicationController
   before_action :set_website, :except => [:index, :new, :create]
 
   def index
-    @websites = Website.all.paginate(:page => params[:page], :per_page => 50)
+    @websites = Website.all.order(:created_at => :desc).paginate(:page => params[:page], :per_page => 50)
   end
 
   def show
@@ -56,6 +56,10 @@ class WebsitesController < ApplicationController
       flash[:danger] = "Failed to remove website!"
       render :show
     end
+  end
+
+  def json_export
+    @websites = Website.all.order(:created_at => :desc).paginate(:page => params[:page], :per_page => 50)
   end
 
   private
