@@ -37,4 +37,11 @@ Rails.application.routes.draw do
   get    'registrars/:id/edit',                              :to => 'registrars#edit'
   patch  'registrars/:id/edit',                              :to => 'registrars#update'
   delete 'registrars/:id',                                   :to => 'registrars#destroy'
+
+  get    'keys',                                             :to => 'api_keys#index'
+  get    'keys/new',                                         :to => 'api_keys#new'
+  post   'keys/new',                                         :to => 'api_keys#create'
+  get    'keys/:id/edit',                                    :to => 'api_keys#edit'
+  patch  'keys/:id/edit',                                    :to => 'api_keys#update'
+  delete 'keys/:id',                                         :to => 'api_keys#destroy'
 end
