@@ -27,7 +27,7 @@
 </table>
 
 <%= link_to "Add a website", url_for(:controller => :websites, :action => :new) %><br/>
-<%= link_to "Export this page as JSON", url_for(:controller => :websites, :action => :json_export, :page => params[:page]) %>
+<%= link_to "Export this page as JSON", url_for(:controller => :websites, :action => :json_export, :page => params[:page], :format => :json) %>
 
 <div class="text-center">
   <%= will_paginate @websites, renderer: BootstrapPagination::Rails %>
