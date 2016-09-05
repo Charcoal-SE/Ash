@@ -35,6 +35,13 @@
             <li><%= link_to "registrars", url_for(:controller => '/registrars', :action => :index), class: (controller.class == RegistrarsController ? "active" : "") %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <% if user_signed_in? %>
+                <%= link_to "log out #{current_user.username}", destroy_user_session_path, :method => :delete %>
+              <% else %>
+                <%= link_to "log in", new_user_session_path %>
+              <% end %>
+            </li>
             <li><a href="#"><code><%= Rails.env %></code></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
