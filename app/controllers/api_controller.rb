@@ -6,7 +6,7 @@ class ApiController < ApplicationController
   # Write methods
 
   def create_website
-    @website = Website.create website_params
+    @website = Website.where(website_params[:website]).first_or_create
     if @website.save
       @website.admin.site_count += 1
       @website.admin.save!
@@ -22,21 +22,21 @@ class ApiController < ApplicationController
   end
 
   def create_admin
-    @admin = Admin.create admin_params
+    @admin = Admin.where(admin_params[:admin]).first_or_create
     unless @admin.save
       render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the admin from being saved.' }
     end
   end
 
   def create_tech
-    @tech = Tech.create tech_params
+    @tech = Tech.where(tech_params[:tech]).first_or_create
     unless @tech.save
       render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the tech from being saved.' }
     end
   end
 
   def create_registrar
-    @registrar = Registrar.create registrar_params
+    @registrar = Registrar.where(registrar_params[:registrar]).first_or_create
     unless @registrar.save
       render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the registrar from being saved.' }
     end
@@ -89,7 +89,7 @@ class ApiController < ApplicationController
     end
 
     def website_params
-      params.require(:website).permit(:url, :post_count, :admin_id, :tech_id, :registrar_id)
+      params.require(:website).permit(:url, :name_server, :post_count, :admin_id, :tech_id, :registrar_id)
     end
 
     def admin_params
