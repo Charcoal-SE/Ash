@@ -4,6 +4,8 @@ class Registrar < ApplicationRecord
   validates_presence_of :name
   validate :valid_url
 
+  validate :name, uniqueness: { scope: [:url, :email, :phone] }
+
   private
     def valid_url
       if url.nil? || url.empty?

@@ -1,5 +1,5 @@
 class Tech < ApplicationRecord
   has_many :websites
 
-  validates_presence_of :name
+  validate :name, presence: true, uniqueness: { scope: [:org, :country, :email, :phone] }
 end
