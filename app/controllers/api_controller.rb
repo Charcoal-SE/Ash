@@ -17,28 +17,44 @@ class ApiController < ApplicationController
       @website.registrar.site_count += 1
       @website.registrar.save!
     else
-      render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the website from being saved.' }
+      unless @website.valid?
+        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the website from being saved.' }
+      else
+        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.' }
+      end
     end
   end
 
   def create_admin
     @admin = Admin.where(admin_params).first_or_create
     unless @admin.save
-      render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the admin from being saved.' }
+      unless @admin.valid?
+        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the admin from being saved.' }
+      else
+        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.' }
+      end
     end
   end
 
   def create_tech
     @tech = Tech.where(tech_params).first_or_create
     unless @tech.save
-      render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the tech from being saved.' }
+      unless @tech.valid?
+        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the tech from being saved.' }
+      else
+        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.' }
+      end
     end
   end
 
   def create_registrar
     @registrar = Registrar.where(registrar_params).first_or_create
     unless @registrar.save
-      render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the registrar from being saved.' }
+      unless @registrar.valid?
+        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the registrar from being saved.' }
+      else
+        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.' }
+      end
     end
   end
 
