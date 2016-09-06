@@ -1,10 +1,9 @@
 class Registrar < ApplicationRecord
   has_many :websites
 
-  validates_presence_of :name
   validate :valid_url
 
-  validate :name, uniqueness: { scope: [:url, :email, :phone] }
+  validates :name, presence: true, uniqueness: { scope: [:url, :email, :phone] }
 
   private
     def valid_url
