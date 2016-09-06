@@ -5,6 +5,8 @@ class Website < ApplicationRecord
 
   validate :valid_url
 
+  validates :url, uniqueness: { scope: [:name_server] }
+
   private
     def valid_url
       if url.nil? || url.empty?

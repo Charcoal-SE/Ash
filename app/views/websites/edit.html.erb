@@ -15,7 +15,7 @@
 <%= form_for @website, :url => url_for(:controller => :websites, :action => :update) do |f| %>
   <div class="field">
     <%= f.label :url, "URL" %><br/>
-    <%= f.url_field :url, class: "form-control", placeholder: "use the root URL of the site" %>
+    <%= f.text_field :url, class: "form-control", placeholder: "use the root URL of the site" %>
   </div><br/>
 
   <div class="field">
