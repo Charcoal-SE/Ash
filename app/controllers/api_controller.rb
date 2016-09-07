@@ -18,9 +18,9 @@ class ApiController < ApplicationController
       @website.registrar.save!
     else
       unless @website.valid?
-        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the website from being saved.' }
+        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the website from being saved.', :messages => @website.errors.full_messages }
       else
-        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.' }
+        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.', :messages => @website.errors.full_messages }
       end
     end
   end
@@ -29,9 +29,9 @@ class ApiController < ApplicationController
     @admin = Admin.where(admin_params).first_or_create
     unless @admin.save
       unless @admin.valid?
-        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the admin from being saved.' }
+        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the admin from being saved.', :messages => @admin.errors.full_messages }
       else
-        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.' }
+        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.', :messages => @admin.errors.full_messages }
       end
     end
   end
@@ -40,9 +40,9 @@ class ApiController < ApplicationController
     @tech = Tech.where(tech_params).first_or_create
     unless @tech.save
       unless @tech.valid?
-        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the tech from being saved.' }
+        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the tech from being saved.', :messages => @tech.errors.full_messages }
       else
-        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.' }
+        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.', :messages => @tech.errors.full_messages }
       end
     end
   end
@@ -51,9 +51,9 @@ class ApiController < ApplicationController
     @registrar = Registrar.where(registrar_params).first_or_create
     unless @registrar.save
       unless @registrar.valid?
-        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the registrar from being saved.' }
+        render :status => 500, :json => { :error_code => 500, :error_name => 'internal', :error_message => 'An internal error prevented the registrar from being saved.', :messages => @registrar.errors.full_messages }
       else
-        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.' }
+        render :status => 400, :json => { :error_code => 400, :error_name => 'failed_validation', :error_message => 'The object created fails validation.', :messages => @registrar.errors.full_messages }
       end
     end
   end
